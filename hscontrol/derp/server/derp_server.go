@@ -83,12 +83,13 @@ func (d *DERPServer) GenerateRegion() (tailcfg.DERPRegion, error) {
 		Avoid:      false,
 		Nodes: []*tailcfg.DERPNode{
 			{
-				Name:     fmt.Sprintf("%d", d.cfg.ServerRegionID),
-				RegionID: d.cfg.ServerRegionID,
-				HostName: host,
-				DERPPort: port,
-				IPv4:     d.cfg.IPv4,
-				IPv6:     d.cfg.IPv6,
+				Name:       fmt.Sprintf("%d", d.cfg.ServerRegionID),
+				RegionID:   d.cfg.ServerRegionID,
+				HostName:   host,
+				DERPPort:   port,
+				IPv4:       d.cfg.IPv4,
+				IPv6:       d.cfg.IPv6,
+				STUNTestIP: d.cfg.STUNTestIP,
 			},
 		},
 	}

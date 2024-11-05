@@ -181,6 +181,7 @@ type DERPConfig struct {
 	UpdateFrequency                    time.Duration
 	IPv4                               string
 	IPv6                               string
+	STUNTestIP                         string
 }
 
 type LogTailConfig struct {
@@ -412,6 +413,8 @@ func derpConfig() DERPConfig {
 	)
 	ipv4 := viper.GetString("derp.server.ipv4")
 	ipv6 := viper.GetString("derp.server.ipv6")
+	stunTestIP := viper.GetString("derp.server.stun_test_ip")
+
 	automaticallyAddEmbeddedDerpRegion := viper.GetBool(
 		"derp.server.automatically_add_embedded_derp_region",
 	)
@@ -459,6 +462,7 @@ func derpConfig() DERPConfig {
 		IPv4:                               ipv4,
 		IPv6:                               ipv6,
 		AutomaticallyAddEmbeddedDerpRegion: automaticallyAddEmbeddedDerpRegion,
+		STUNTestIP:                         stunTestIP,
 	}
 }
 
